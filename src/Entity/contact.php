@@ -1,5 +1,5 @@
 <?php
-// src\Controller\contact.php
+// src\Entity\contact.php
 namespace App\Services;
 
 class contact

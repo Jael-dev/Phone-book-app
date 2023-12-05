@@ -1,3 +1,5 @@
+// This file contains the lain cli entry point
+
 #!/usr/bin/env php
 <?php
 
