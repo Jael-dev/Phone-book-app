@@ -1,20 +1,97 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Phone Book App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-    <h1>This is a Heading</h1>
-    <p>This is a paragraph.</p>
-    </body>
+        #sidebar {
+            width: 200px;
+            background-color: #8a5eb1;
+            padding: 20px;
+            color: #fff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        #contact-list {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .group-item {
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .group-item:hover {
+            background-color: #663399;
+        }
+
+        .contact-list-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .contact-list-item:hover {
+            transform: scale(1.02);
+        }
+
+        .add-icon {
+            position: fixed;
+            bottom: 20px;
+            padding: 10px;
+            background-color: #8a5eb1;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .add-icon:hover {
+            background-color: #663399;
+            transform: scale(1.1);
+        }
+
+        .add-icon-left {
+            left: 20px;
+        }
+
+        .add-icon-right {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        {% for group in 3 %}
+            <div class="group-item">{{ group }}</div>
+        {% endfor %}
+    </div>
+
+    <div id="contact-list">
+        {% for contact in 3 %}
+            <div class="contact-list-item">{{ contact }}</div>
+        {% endfor %}
+    </div>
+
+    <button class="add-icon add-icon-left">+</button>
+    <button class="add-icon add-icon-right">+</button>
+
+</body>
 </html>
